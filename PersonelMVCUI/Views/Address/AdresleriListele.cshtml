@@ -1,0 +1,28 @@
+﻿@model  IEnumerable<PersonelMVCUI.Models.EntityFramework.ADDRESS>
+
+<h2>Adresleri Göster</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Ülke</td>
+            <td>Şehir</td>
+            <td>İlçe</td>
+            <td>Semt</td>
+            <td>Açık Adres</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var address in Model)
+        {
+        <tr>
+            <td>@address.COUNTRY</td>
+            <td>@address.CITY</td>
+            <td>@address.TOWN</td>
+            <td>@address.DISTRICT</td>
+            <td>@address.ADDRESSTEXT</td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+

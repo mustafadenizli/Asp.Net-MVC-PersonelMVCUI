@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PersonelMVCUI.Models.EntityFramework.Kullanici>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    
+    <a class="btn btn-success" href="/Kullanici/Create/">Oluştur</a>
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>Aksiyonlar</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Soyad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Role)
+    </td>
+    <td>
+
+
+        <a class="btn btn-primary" href="/Kullanici/Edit/@item.Id">Guncelle</a>
+        <a class="btn btn-danger" href="/Kullanici/Details/@item.Id">Detay</a>
+        <a class="btn btn-warning" href="/Kullanici/Delete/@item.Id">Sil</a>
+
+
+
+        
+    </td>
+</tr>
+}
+
+</table>

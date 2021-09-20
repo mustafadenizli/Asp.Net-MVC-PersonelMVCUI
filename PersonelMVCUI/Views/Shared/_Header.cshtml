@@ -1,0 +1,44 @@
+﻿ <div class="container justify-content-center">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light ">
+
+        <ul class="navbar-nav ">
+
+            <a class="nav-link" href="#" style="color:red;">
+                <b> Personel Yönetim Sistemi </b>
+                <li class="nav-item">
+                    <b>Toplam Gider: @{Html.RenderAction("ToplamMaas", "Personel");}</b>
+                </li>
+            </a>
+            <br />
+
+
+            <li class="nav-item">
+                <b><a class="nav-link" href="/Departman">Departmanlar</a></b>
+            </li>
+            <li class="nav-item">
+                <b><a class="nav-link" href="/Personel">Personeller</a></b>
+            </li>
+            <li class="nav-item">
+                <b> <a class="nav-link" href="/Address">Adresler</a></b>
+            </li>
+
+            @if (User.IsInRole("A"))
+            {
+                <b><li class="nav-item"><a class="nav-link" href="/Kullanici">Kullanıcılar</a></li></b>
+            }
+
+            <li class="nav-item">
+                <b><a class="nav-link" href="/Security/LogOut">Çıkış Yap</a></b>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#" style="color:red; "><b> Hoş Geldiniz @HttpContext.Current.User.Identity.Name</b></a>
+            </li>
+
+
+
+
+
+        </ul>
+
+    </nav>
+</div>

@@ -1,0 +1,59 @@
+﻿@model PersonelMVCUI.ViewModels.AddressFormViewModel
+@{
+    ViewBag.Title = "AddressForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddressForm</h2>
+@using (Html.BeginForm("Kaydet", "Address", FormMethod.Post))
+{
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address.Personel)
+        @Html.DropDownListFor(m => m.Address.PERSONELID, new SelectList(Model.Personeller, "Id", "Ad"),
+        "isim Seçiniz", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address.PERSONELID)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address.COUNTRY)
+        @Html.TextBoxFor(m => m.Address.COUNTRY, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address.COUNTRY)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address.CITY)
+        @Html.TextBoxFor(m => m.Address.CITY, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address.CITY)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address.TOWN)
+        @Html.TextBoxFor(m => m.Address.TOWN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address.TOWN)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address.DISTRICT)
+        @Html.TextBoxFor(m => m.Address.DISTRICT, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address.DISTRICT)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address.ADDRESSTEXT)
+        @Html.TextBoxFor(m => m.Address.ADDRESSTEXT, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address.ADDRESSTEXT)
+
+    </div>
+    @Html.HiddenFor(m => m.Address.ID)
+    <button type="submit" class="btn btn-outline-danger">Kaydet</button>
+
+}
+
+
+@section scripts
+    {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+}

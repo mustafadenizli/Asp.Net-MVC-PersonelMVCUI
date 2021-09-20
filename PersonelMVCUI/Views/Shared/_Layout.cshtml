@@ -1,0 +1,35 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout</title>
+    
+    @*<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />*@
+    @Styles.Render("~/bundles/css")
+    
+</head>
+<body>
+    @Html.Partial("_Header")
+    <div class="container justify-content-center">
+        @RenderBody()
+    </div>
+    
+    @Scripts.Render("~/bundles/scripts")
+   
+   
+  
+    @*<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>*@
+    
+
+    @RenderSection("scripts", false)
+
+
+</body>
+</html>

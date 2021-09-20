@@ -1,0 +1,46 @@
+﻿@model List<PersonelMVCUI.Models.EntityFramework.ADDRESS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+@Html.ActionLink("Yeni Address","Yeni",null,new { @class="btn btn-success"})
+<center><h2>Adres Listesi</h2><br /></center>
+<table class="table table-bordered" id="tblAdresler">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Personel</td>
+            <td>Ülke</td>
+            <td>Şehir</td>
+            <td>İlçe</td>
+            <td>Semt</td>
+            <td>Açık Address</td>
+            <td>Güncelle</td>
+            <td>Sil</td>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var address in Model)
+        {
+        <tr>
+            <td>@address.ID</td>
+            <td>@address.Personel.Ad</td>
+            <td>@address.COUNTRY</td>
+            <td>@address.CITY</td>
+            <td>@address.TOWN</td>
+            <td>@address.DISTRICT</td>
+            <td>@address.ADDRESSTEXT</td>
+            <td>@Html.ActionLink("Güncelle","Guncelle",new { id= address.ID},new { @class="btn btn-primary"})</td>
+            <td><a class="btn btn-warning btnAdresSil" data-id="@address.ID" >Sil</a></td>
+          
+
+
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+
